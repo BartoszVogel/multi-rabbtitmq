@@ -1,0 +1,15 @@
+<configuration>
+
+    <springProperty name="APP_NAME" source="info.build.name"/>
+    <springProperty name="APP_VERSION" source="info.build.version"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%blue(${HOSTNAME})][%magenta(${APP_NAME}-${APP_VERSION})][%blue(%t)][%yellow(%mdc)] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="pl.ibart.multirabbitmq" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+</configuration>
